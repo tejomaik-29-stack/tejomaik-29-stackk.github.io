@@ -1,9 +1,270 @@
+```html
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>my wbesite</title>
-  </head>
-  <body>
-    <h1> hello github!</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Tejomai | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #161b22;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        header h1 {
+            color: #58a6ff;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+            color: #8b949e;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        section {
+            background: #161b22;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #21262d;
+            color: #58a6ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #30363d;
+        }
+
+        .project {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid #58a6ff;
+            background: #0d1117;
+        }
+
+        .contact a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>K. Tejomai</h1>
+        <p>Aspiring Software Developer | Python | C | DSA | Power BI | n8n</p>
+    </header>
+
+    <div class="container">
+
+        <!-- About -->
+        <section>
+            <h2>👩‍💻 About Me</h2>
+            <p>
+                I am K. Tejomai, an aspiring software developer interested in
+                programming, data analytics, workflow automation, and problem-solving.
+                I have learned C, Python, Data Structures & Algorithms, Power BI,
+                and n8n workflow automation.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2>🛠️ Skills & Tools</h2>
+
+            <div class="skills">
+                <span class="skill">C</span>
+                <span class="skill">Python</span>
+                <span class="skill">Data Structures & Algorithms</span>
+                <span class="skill">Power BI</span>
+                <span class="skill">n8n</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">APIs</span>
+                <span class="skill">Workflow Automation</span>
+            </div>
+        </section>
+
+        <!-- Courses -->
+        <section>
+            <h2>📚 Courses</h2>
+
+            <ul>
+                <li>C Programming</li>
+                <li>Python Programming</li>
+                <li>Data Structures & Algorithms</li>
+                <li>Power BI</li>
+                <li>n8n Workflow Automation</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h2>🚀 Projects</h2>
+
+            <div class="project">
+                <h3>🤖 n8n Automation Projects</h3>
+                <p>
+                    Built workflow automation projects using n8n.
+                    Created workflows that connect different applications,
+                    process data, use triggers and actions, and automate
+                    repetitive tasks.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>📊 Power BI Data Analysis</h3>
+                <p>
+                    Created dashboards and data visualizations using Power BI
+                    to analyze data and present useful insights.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>🐍 Python Projects</h3>
+                <p>
+                    Developed Python programs to practice programming,
+                    functions, loops, data structures, and problem-solving.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>💻 C Programming</h3>
+                <p>
+                    Practiced C programming fundamentals and implemented
+                    programs based on problem-solving and algorithms.
+                </p>
+            </div>
+        </section>
+
+        <!-- Objective -->
+        <section>
+            <h2>🎯 Career Objective</h2>
+            <p>
+                To begin my career in the technology field where I can use my
+                skills in programming, data analytics, and workflow automation
+                while continuously learning and contributing to real-world projects.
+            </p>
+        </section>
+
+        <!-- Currently Learning -->
+        <section>
+            <h2>📈 Currently Learning</h2>
+
+            <ul>
+                <li>Advanced Python</li>
+                <li>Data Structures & Algorithms</li>
+                <li>Power BI</li>
+                <li>n8n Automation</li>
+                <li>APIs & Workflow Integration</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact">
+            <h2>📫 Contact</h2>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/" target="_blank">
+                    GitHub Profile
+                </a>
+            </p>
+
+            <p>
+                <strong>LinkedIn:</strong>
+                <a href="#" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:your-email@example.com">
+                    your-email@example.com
+                </a>
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 K. Tejomai | GitHub Portfolio</p>
+    </footer>
+
+</body>
 </html>
+```
