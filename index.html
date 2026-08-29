@@ -7,414 +7,1473 @@
     <title>K. Tejomai | Portfolio</title>
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.7;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Header */
+
+        /* =========================
+           ANIMATED BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            left: -250px;
+            top: 20%;
+
+            background: #ff3b30;
+            border-radius: 50%;
+
+            filter: blur(180px);
+            opacity: 0.08;
+
+            z-index: -1;
+
+            animation: backgroundMove 8s infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            right: -250px;
+            bottom: 10%;
+
+            background: #ff3b30;
+            border-radius: 50%;
+
+            filter: blur(180px);
+            opacity: 0.07;
+
+            z-index: -1;
+
+            animation: backgroundMove2 10s infinite alternate;
+        }
+
+        @keyframes backgroundMove {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(150px, -100px);
+            }
+        }
+
+        @keyframes backgroundMove2 {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-150px, 100px);
+            }
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
         header {
-            background: linear-gradient(135deg, #161b22, #0d1117);
-            text-align: center;
-            padding: 70px 20px;
-            border-bottom: 1px solid #30363d;
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 22px 8%;
+
+            background: rgba(5, 5, 5, 0.85);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #222;
+
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 48px;
-            color: #58a6ff;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 20px;
-            color: #8b949e;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        /* Sections */
-        section {
-            background-color: #161b22;
-            padding: 30px;
-            margin-bottom: 25px;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-        }
-
-        section h2 {
-            color: #58a6ff;
-            margin-bottom: 20px;
-            font-size: 26px;
-        }
-
-        section h3 {
-            color: #f0f6fc;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        /* About */
-        .about p {
-            color: #c9d1d9;
-        }
-
-        /* Skills */
-        .skills {
+        nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .skill {
-            background-color: #21262d;
-            color: #58a6ff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #30363d;
+        .logo {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff3b30;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
             transition: 0.3s;
         }
 
-        .skill:hover {
-            background-color: #238636;
-            color: white;
-            transform: translateY(-2px);
+        .nav-links a:hover {
+            color: #ff3b30;
         }
 
-        /* Lists */
-        ul {
-            padding-left: 25px;
+
+        /* =========================
+           HOME
+        ========================= */
+
+        .home {
+
+            min-height: 100vh;
+
+            width: 90%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 60px;
+
+            padding-top: 100px;
         }
 
-        li {
+
+        /* =========================
+           IMAGE AREA
+        ========================= */
+
+        .image-area {
+
+            width: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .profile {
+
+            width: 450px;
+            height: 450px;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+
+        /* RED CIRCLE */
+
+        .red-circle {
+
+            position: absolute;
+
+            width: 390px;
+            height: 390px;
+
+            border-radius: 50%;
+
+            background: #ff3b30;
+
+            box-shadow:
+                0 0 25px #ff3b30,
+                0 0 60px #ff3b3055,
+                0 0 100px #ff3b3025;
+
+            animation: pulse 3s ease-in-out infinite alternate;
+
+            z-index: 1;
+        }
+
+
+        /* YOUR GIRL IMAGE */
+
+        .profile img {
+
+            position: absolute;
+
+            width: 390px;
+            height: 390px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            /*
+              This moves the image so the girl
+              appears properly inside the circle.
+            */
+            object-position: 70% center;
+
+            z-index: 2;
+
+            animation: imageIn 1.5s ease;
+
+            /*
+              IMPORTANT:
+              No mix-blend-mode here.
+            */
+        }
+
+
+        /* =========================
+           ROTATING RINGS
+        ========================= */
+
+        .profile::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 425px;
+            height: 425px;
+
+            border-radius: 50%;
+
+            border: 2px solid #ff3b3055;
+
+            border-top-color: #ff3b30;
+
+            border-right-color: transparent;
+
+            z-index: 5;
+
+            animation: rotate 6s linear infinite;
+        }
+
+
+        .profile::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 455px;
+            height: 455px;
+
+            border-radius: 50%;
+
+            border: 1px solid #ff3b3035;
+
+            border-bottom-color: #ff3b30;
+
+            border-left-color: transparent;
+
+            z-index: 5;
+
+            animation: rotateReverse 9s linear infinite;
+        }
+
+
+        /* =========================
+           IMAGE ANIMATIONS
+        ========================= */
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.04);
+            }
+        }
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateReverse {
+
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes imageIn {
+
+            from {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================
+           TEXT AREA
+        ========================= */
+
+        .content {
+
+            width: 50%;
+
+            animation: textIn 1.2s ease;
+        }
+
+        @keyframes textIn {
+
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        .hello {
+
+            font-size: 25px;
+
             margin-bottom: 8px;
         }
 
-        /* Projects */
-        .project {
-            background-color: #0d1117;
-            border-left: 4px solid #58a6ff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 6px;
+        .hello span {
+            color: #ff3b30;
         }
 
-        .project:last-child {
-            margin-bottom: 0;
+
+        .content h1 {
+
+            font-size: 75px;
+
+            line-height: 1.1;
+
+            margin-bottom: 20px;
+        }
+
+        .content h1 span {
+            color: #ff3b30;
+        }
+
+
+        .content h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .content h2 span {
+
+            color: #ff3b30;
+
+            border-right: 3px solid #ff3b30;
+
+            padding-right: 5px;
+
+            animation: cursor 0.7s infinite;
+        }
+
+        @keyframes cursor {
+
+            50% {
+                border-color: transparent;
+            }
+        }
+
+
+        /* =========================
+           DESCRIPTION
+        ========================= */
+
+        .description {
+
+            color: #999;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            max-width: 650px;
+        }
+
+
+        /* =========================
+           SOCIAL
+        ========================= */
+
+        .social {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+        .social a {
+
+            width: 52px;
+            height: 52px;
+
+            border: 1px solid #444;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition: 0.4s;
+        }
+
+        .social a:hover {
+
+            color: #ff3b30;
+
+            border-color: #ff3b30;
+
+            transform: translateY(-7px);
+
+            box-shadow: 0 0 25px #ff3b3055;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 18px;
+
+            margin-top: 35px;
+        }
+
+        .btn {
+
+            padding: 15px 32px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.4s;
+        }
+
+        .hire {
+
+            background: #ff3b30;
+
+            color: white;
+        }
+
+        .hire:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 0 30px #ff3b30;
+        }
+
+        .view {
+
+            border: 1px solid #555;
+
+            color: white;
+        }
+
+        .view:hover {
+
+            color: #ff3b30;
+
+            border-color: #ff3b30;
+
+            transform: translateY(-5px);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        section:not(.home) {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 100px 0;
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+
+            color: #ff3b30;
+
+            letter-spacing: 4px;
+        }
+
+        .section-title h2 {
+
+            font-size: 45px;
+
+            margin-top: 10px;
+        }
+
+        .section-title span {
+            color: #ff3b30;
+        }
+
+
+        .about-box {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .card {
+
+            padding: 35px;
+
+            background: #ffffff05;
+
+            border: 1px solid #ffffff12;
+
+            border-radius: 18px;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #ff3b30;
+
+            box-shadow: 0 0 35px #ff3b3015;
+        }
+
+        .card h3 {
+
+            margin-bottom: 15px;
+
+            color: white;
+        }
+
+        .card p {
+
+            color: #999;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill {
+
+            text-align: center;
+
+            padding: 30px 15px;
+
+            background: #ffffff05;
+
+            border: 1px solid #ffffff12;
+
+            border-radius: 15px;
+
+            transition: 0.4s;
+        }
+
+        .skill h3 {
+
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        .skill:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #ff3b30;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .project {
+
+            padding: 35px;
+
+            background: #ffffff05;
+
+            border: 1px solid #ffffff12;
+
+            border-radius: 18px;
+
+            transition: 0.4s;
+        }
+
+        .project:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #ff3b30;
+        }
+
+        .project h3 {
+
+            color: #ff3b30;
+
+            margin-bottom: 15px;
         }
 
         .project p {
-            color: #8b949e;
+
+            color: #999;
+
+            line-height: 1.8;
+
+            font-size: 14px;
         }
 
-        /* Contact */
-        .contact p {
-            margin: 10px 0;
-        }
 
-        .contact a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
+        /* =========================
+           CONTACT
+        ========================= */
 
-        .contact a:hover {
-            color: #79c0ff;
-            text-decoration: underline;
-        }
+        .contact-box {
 
-        /* Footer */
-        footer {
             text-align: center;
-            padding: 30px;
-            color: #8b949e;
-            border-top: 1px solid #30363d;
-            background-color: #161b22;
+
+            padding: 60px 30px;
+
+            border: 1px solid #ffffff12;
+
+            border-radius: 20px;
+
+            background: #ffffff04;
         }
 
-        /* Button */
-        .github-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #238636;
+        .contact-box h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box span {
+            color: #ff3b30;
+        }
+
+        .contact-box p {
+
+            color: #999;
+
+            margin-bottom: 25px;
+        }
+
+        .email {
+
             color: white;
+
             text-decoration: none;
-            border-radius: 6px;
-            transition: 0.3s;
+
+            font-size: 18px;
         }
 
-        .github-btn:hover {
-            background-color: #2ea043;
+        .email:hover {
+            color: #ff3b30;
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
 
-            header {
-                padding: 50px 15px;
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid #222;
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #ff3b30;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
             }
 
-            header h1 {
-                font-size: 36px;
+            .home {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                padding-top: 130px;
             }
 
-            header p {
-                font-size: 16px;
+            .image-area,
+            .content {
+
+                width: 100%;
             }
 
-            section {
-                padding: 20px;
+            .profile {
+
+                width: 330px;
+                height: 330px;
             }
 
-            section h2 {
-                font-size: 22px;
+            .red-circle,
+            .profile img {
+
+                width: 300px;
+                height: 300px;
+            }
+
+            .profile::before {
+
+                width: 325px;
+                height: 325px;
+            }
+
+            .profile::after {
+
+                width: 350px;
+                height: 350px;
+            }
+
+            .content h1 {
+
+                font-size: 52px;
+            }
+
+            .description {
+
+                margin: auto;
+            }
+
+            .social,
+            .buttons {
+
+                justify-content: center;
+            }
+
+            .about-box {
+
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects {
+
+                grid-template-columns: 1fr;
             }
         }
+
+
+        @media(max-width: 500px) {
+
+            .profile {
+
+                width: 280px;
+                height: 280px;
+            }
+
+            .red-circle,
+            .profile img {
+
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile::before {
+
+                width: 275px;
+                height: 275px;
+            }
+
+            .profile::after {
+
+                width: 295px;
+                height: 295px;
+            }
+
+            .content h1 {
+
+                font-size: 43px;
+            }
+
+            .content h2 {
+
+                font-size: 21px;
+            }
+
+            .skills {
+
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <header>
-        <h1>K. Tejomai</h1>
 
-        <p>
-            Aspiring Software Developer |
-            Python | C | DSA | Power BI | n8n Automation
-        </p>
+        <nav>
 
-        <a
-            class="github-btn"
-            href="https://github.com/tejomaik-29-stack"
-            target="_blank"
-        >
-            Visit My GitHub
-        </a>
+            <a href="#home" class="logo">
+                K. <span>Tejomai</span>
+            </a>
+
+            <div class="nav-links">
+
+                <a href="#home">Home</a>
+
+                <a href="#about">About</a>
+
+                <a href="#skills">Skills</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#contact">Contact</a>
+
+            </div>
+
+        </nav>
+
     </header>
 
 
-    <main class="container">
 
-        <!-- About Me -->
-        <section class="about">
-            <h2>👩‍💻 About Me</h2>
+    <!-- =========================
+         HOME
+    ========================== -->
 
-            <p>
-                I am <strong>K. Tejomai</strong>, an aspiring software developer
-                interested in programming, data analysis, automation, and
+    <section class="home" id="home">
+
+
+        <!-- IMAGE -->
+
+        <div class="image-area">
+
+            <div class="profile">
+
+                <div class="red-circle"></div>
+
+                <!-- YOUR GIRL IMAGE -->
+                <img src="profile.png" alt="K. Tejomai">
+
+            </div>
+
+        </div>
+
+
+        <!-- TEXT -->
+
+        <div class="content">
+
+            <p class="hello">
+                Hi, It's <span>Tejomai</span>
+            </p>
+
+            <h1>
+                K. <span>Tejomai</span>
+            </h1>
+
+            <h2>
+                I'm an
+                <span id="typing">Automation Enthusiast</span>
+            </h2>
+
+            <p class="description">
+
+                I am an aspiring software developer interested
+                in programming, data analysis, automation and
                 problem-solving.
+
+                I enjoy learning new technologies and building
+                practical projects that solve real-world problems.
+
             </p>
 
-            <p>
-                I have learned <strong>C, Python, Data Structures & Algorithms,
-                Power BI, and n8n</strong> and have worked on projects involving
-                workflow automation.
-            </p>
 
-            <p>
-                I enjoy learning new technologies and building practical
-                projects that solve real-world problems.
-            </p>
-        </section>
+            <!-- SOCIAL -->
 
+            <div class="social">
 
-        <!-- Technical Skills -->
-        <section>
-            <h2>🛠️ Technical Skills & Tools</h2>
-
-            <div class="skills">
-                <span class="skill">C</span>
-                <span class="skill">Python</span>
-                <span class="skill">Data Structures & Algorithms</span>
-                <span class="skill">Power BI</span>
-                <span class="skill">n8n</span>
-                <span class="skill">Git</span>
-                <span class="skill">GitHub</span>
-            </div>
-        </section>
-
-
-        <!-- Courses -->
-        <section>
-            <h2>📚 Courses & Learning</h2>
-
-            <ul>
-                <li>C Programming</li>
-                <li>Python Programming</li>
-                <li>Data Structures & Algorithms</li>
-                <li>Power BI</li>
-                <li>n8n Workflow Automation</li>
-            </ul>
-        </section>
-
-
-        <!-- Projects -->
-        <section>
-            <h2>🚀 Projects</h2>
-
-            <!-- n8n -->
-            <div class="project">
-                <h3>🤖 n8n Automation Projects</h3>
-
-                <ul>
-                    <li>
-                        Built workflow automation projects using
-                        <strong>n8n</strong>.
-                    </li>
-
-                    <li>
-                        Created automated workflows to connect different
-                        applications and services.
-                    </li>
-
-                    <li>
-                        Worked with triggers, actions, APIs, and data processing.
-                    </li>
-
-                    <li>
-                        Designed workflows to reduce repetitive manual tasks.
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Power BI -->
-            <div class="project">
-                <h3>📊 Power BI Projects</h3>
-
-                <ul>
-                    <li>
-                        Created dashboards and data visualizations using
-                        <strong>Power BI</strong>.
-                    </li>
-
-                    <li>
-                        Analyzed data and presented useful insights through
-                        interactive reports.
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Python -->
-            <div class="project">
-                <h3>🐍 Python Projects</h3>
-
-                <ul>
-                    <li>
-                        Developed Python programs to practice programming
-                        and problem-solving.
-                    </li>
-
-                    <li>
-                        Used Python concepts such as functions, loops,
-                        data structures, and algorithms.
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- C -->
-            <div class="project">
-                <h3>💻 C Programming Projects</h3>
-
-                <ul>
-                    <li>
-                        Practiced C programming fundamentals and
-                        problem-solving.
-                    </li>
-
-                    <li>
-                        Implemented programs using basic data structures
-                        and algorithms.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-
-        <!-- Career Objective -->
-        <section>
-            <h2>🎯 Career Objective</h2>
-
-            <p>
-                To begin my career in the technology field where I can use
-                my skills in <strong>programming, data analytics, and workflow
-                automation</strong> while continuing to learn and contribute
-                to real-world projects.
-            </p>
-        </section>
-
-
-        <!-- Currently Learning -->
-        <section>
-            <h2>📈 Currently Learning</h2>
-
-            <ul>
-                <li>Python</li>
-                <li>Data Structures & Algorithms</li>
-                <li>Power BI</li>
-                <li>n8n Automation</li>
-                <li>APIs & Workflow Integration</li>
-                <li>Git & GitHub</li>
-            </ul>
-        </section>
-
-
-        <!-- Contact -->
-        <section class="contact">
-            <h2>📫 Connect With Me</h2>
-
-            <p>
-                <strong>GitHub:</strong>
-                <a
-                    href="https://github.com/tejomaik-29-stack"
-                    target="_blank"
-                >
-                    github.com/tejomaik-29-stack
+                <a href="https://github.com/tejomaik-29-stack"
+                   target="_blank">
+                    GitHub
                 </a>
-            </p>
 
-            <p>
-    <strong>LinkedIn:</strong>
+                <a href="#">
+                    LinkedIn
+                </a>
 
-    <a href="https://www.linkedin.com/in/tejomai-k-5ab5a1405/" target="_blank">
-        LinkedIn Profile
-    </a>
-</p>
-
-            <p>
-                <strong>Email:</strong>
                 <a href="mailto:ktejomai8@gmail.com">
-                    ktejomai8@gmail.com
+                    Email
                 </a>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a href="mailto:ktejomai8@gmail.com"
+                   class="btn hire">
+                    Hire Me
+                </a>
+
+                <a href="#projects"
+                   class="btn view">
+                    View Projects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <small>01 — ABOUT ME</small>
+
+            <h2>
+                About <span>Me</span>
+            </h2>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div class="card">
+
+                <h3>
+                    Aspiring Software Developer
+                </h3>
+
+                <p>
+
+                    I am K. Tejomai, an aspiring software developer
+                    interested in programming, data analysis,
+                    automation and problem-solving.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    My Passion
+                </h3>
+
+                <p>
+
+                    I enjoy learning new technologies and building
+                    practical projects that solve real-world problems.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="section-title">
+
+            <small>02 — TECHNICAL SKILLS</small>
+
+            <h2>
+                My <span>Skills</span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>C</h3>
+                <p>Programming</p>
+            </div>
+
+            <div class="skill">
+                <h3>Python</h3>
+                <p>Programming</p>
+            </div>
+
+            <div class="skill">
+                <h3>DSA</h3>
+                <p>Algorithms</p>
+            </div>
+
+            <div class="skill">
+                <h3>Power BI</h3>
+                <p>Data Analytics</p>
+            </div>
+
+            <div class="skill">
+                <h3>n8n</h3>
+                <p>Automation</p>
+            </div>
+
+            <div class="skill">
+                <h3>Git</h3>
+                <p>Version Control</p>
+            </div>
+
+            <div class="skill">
+                <h3>GitHub</h3>
+                <p>Repositories</p>
+            </div>
+
+            <div class="skill">
+                <h3>APIs</h3>
+                <p>Integration</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <small>03 — MY WORK</small>
+
+            <h2>
+                My <span>Projects</span>
+            </h2>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <h3>
+                    n8n Workflow Automation
+                </h3>
+
+                <p>
+
+                    Built workflow automation projects using n8n.
+                    Created automated workflows to connect different
+                    applications and services using triggers, actions,
+                    APIs and data processing.
+
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>
+                    Power BI Projects
+                </h3>
+
+                <p>
+
+                    Created dashboards and data visualizations using
+                    Power BI. Analyzed data and presented useful
+                    insights through interactive reports.
+
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>
+                    Python Projects
+                </h3>
+
+                <p>
+
+                    Developed Python programs to practice programming
+                    and problem-solving using functions, loops,
+                    data structures and algorithms.
+
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>
+                    C Programming Projects
+                </h3>
+
+                <p>
+
+                    Practiced C programming fundamentals and
+                    problem-solving with basic data structures
+                    and algorithms.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="section-title">
+
+            <small>04 — CONTACT</small>
+
+            <h2>
+                Let's <span>Connect</span>
+            </h2>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h2>
+                Let's build something
+                <span>together.</span>
+            </h2>
+
+            <p>
+                Have a project idea or want to connect?
             </p>
-        </section>
 
-    </main>
+            <a href="mailto:ktejomai8@gmail.com"
+               class="email">
+
+                ktejomai8@gmail.com
+
+            </a>
+
+        </div>
+
+    </section>
 
 
-    <!-- Footer -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
+
         <p>
-            © 2026 K. Tejomai | GitHub Portfolio
+            © 2026 K. <span>Tejomai</span> |
+            Designed & Built by Tejomai
         </p>
+
     </footer>
+
+
+
+    <!-- =========================
+         TYPING ANIMATION
+    ========================== -->
+
+    <script>
+
+        const words = [
+            "Automation Enthusiast",
+            "Software Developer",
+            "Data Analyst",
+            "Problem Solver",
+            "Tech Learner"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const typing =
+            document.getElementById("typing");
+
+
+        function typingAnimation() {
+
+            const currentWord =
+                words[wordIndex];
+
+
+            if (!deleting) {
+
+                typing.textContent =
+                    currentWord.substring(
+                        0,
+                        charIndex + 1
+                    );
+
+                charIndex++;
+
+
+                if (charIndex === currentWord.length) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typingAnimation,
+                        1500
+                    );
+
+                    return;
+                }
+
+            } else {
+
+                typing.textContent =
+                    currentWord.substring(
+                        0,
+                        charIndex - 1
+                    );
+
+                charIndex--;
+
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    wordIndex++;
+
+                    if (wordIndex >= words.length) {
+                        wordIndex = 0;
+                    }
+
+                }
+
+            }
+
+
+            setTimeout(
+                typingAnimation,
+                deleting ? 50 : 100
+            );
+
+        }
+
+
+        typingAnimation();
+
+    </script>
+
 
 </body>
 </html>
-
